@@ -5,7 +5,7 @@ Zend Framework 2 Navigation Menu Twitter Bootstrap Integration
 
 Navigation Factory:
 
-
+<code>
 namespace Application\Navigation\Service;
  
 use Zend\Navigation\Service\DefaultNavigationFactory;
@@ -19,3 +19,4 @@ class MyNavigationFactory extends DefaultNavigationFactory
         return 'mynav';
     }
 }
+</code>
