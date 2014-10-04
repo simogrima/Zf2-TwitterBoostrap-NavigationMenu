@@ -2,7 +2,7 @@
     <?php foreach ($this->container as $page): ?>
         <?php if (!$page->isVisible() || !$this->navigation()->accept($page)) continue; ?>
         <?php $hasChildren = $page->hasPages() ?>
-        <?php if (!$hasChildren): ?>
+        <?php if (!$hasChildren or $page->getId() == 'orfan'): ?>
             <li<?php if ($page->isActive()) echo ' class="active"'; ?>>
                 <a href="<?php echo $page->getHref() ?>">
                 <?php if (null !== $page->get("icon")): ?>
@@ -12,7 +12,7 @@
                 </a>
             </li>
         <?php else: ?>
-            <li class="dropdown<?php if ($page->isActive()) echo ' active'; ?>">
+            <li class="dropdown<?php if ($page->isActive(true)) echo ' active'; ?>">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <?php if (null !== $page->get("icon")): ?>
                     <i class="<?php echo $page->get("icon"); ?>"></i>
